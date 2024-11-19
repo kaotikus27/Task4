@@ -3,33 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">   <title>ExchangeRape API - Eleomar Halamans</title>
+
     <link rel="stylesheet" href="style.css">
     <title>TypeScript Data Validation and Transformation | Eleomar Halaman</title>
 </head>
 <body>
 
     <div class="main--container">
-        <h1>TypeScript Data Validation and Transformation</h1>
-        <div class="form--container">
-            <form action="">
-                <label for="firstName" required>First Name :</label>
-                <input type="text" id="firstName">
-                <br>
-                <label for="lastName" required>Last Name :</label>
-                <input type="text" id="lastName">
-                <br>
-                <label for="age" required>Age :</label>
-                <input type="number" id="age">
-                <br>
-                <label for="email" required>Email Address</label>
-                <input type="email" id="email">
-                <br>
-                <label for="newsLetter">News Letter</label>
-                <input type="checkbox" name="newsLetter" id="newsLetter">
-                <br>
-                <button type="submit">SUBMIT</button>
-            </form>
+        <div class="context">
+            <h1>TypeScript <br> Data Validation and Transformation</h1>
+            <div class="form--container">
+                <form id="regForm">
+                    <label for="firstName" required>First Name <span class="errorShow">*</span></label>
+                    <input type="text" id="firstName" name="firstName">
+                    <p class="errorShow" id="firstNameError"></p>
+                    <br>
+                    <label for="lastName" required>Last Name <span class="errorShow">*</span></label>
+                    <input type="text" id="lastName" name="lastName">
+                    <p  class="errorShow" id="lastNameError"></p>
+                    <br>
+                    <label for="age" required>Age <span class="errorShow">*</span></label>
+                    <input type="number" id="age" name="age">
+                    <p  class="errorShow" id="ageError"></p>
+                    <br>
+                    <label for="email" required>Email Address <span class="errorShow">*</span></label>
+                    <input type="email" id="email" name="email">
+                    <p class="errorShow" id="emailError"></p>
+                    <br>
+                    <div class="checkbox">
+                        <!-- <label for="newsLetter">Subscribe to News Letter</label>
+                        <input class="checkbox" type="checkbox" id="newsLetter" name="newsLetter"> -->
+                        <label for="newsLetter" class="checkbox-label">
+                            <input class="checkbox" type="checkbox" id="newsLetter" name="newsLetter">
+                            <span class="checkbox-custom"></span> Subscribe to Newsletter
+                          </label>
+                    </div>
+                    <br>
+                    <button  type="submit">SUBMIT</button>
+                </form>
+            </div>
+            <div class="result--container">
+                <div style="margin-top: 20px;" id="message"></div>
+            </div>
         </div>
     </div>
+
+    <script src="app.js"></script>
 </body>
 </html>

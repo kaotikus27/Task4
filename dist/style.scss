@@ -2,9 +2,117 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Poppins", serif;
+    font-style: normal;
+    color: #323642;
 }
 
+
 .main--container{
-    border: 1px solid red;
+    // border: 1px solid red;
+    max-width: 1512px;
+    width: 80%; /* Set a fixed width for the body element */ 
+    margin: 50px auto; 
+
+    .checkbox{
+        
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+          }
+          .checkbox {
+            display: none;
+          }
+          .checkbox-custom {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #007bff;
+            border-radius: 4px;
+            margin-right: 10px;
+            position: relative;
+            transition: all 0.3s;
+          }
+          .checkbox:checked + .checkbox-custom {
+            background-color: #00ff26;
+            border-color: #00ff26;
+          }
+          
+          .checkbox:checked + .checkbox-custom::before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 6px;
+            width: 8px;
+            height: 8px;
+            
+            border-radius: 2px;
+          }
+          
+          /* Optional hover effect */
+          .checkbox-label:hover .checkbox-custom {
+            border-color: #00ff26;
+          }
+          
+          /* Optional focus effect */
+          .checkbox:focus + .checkbox-custom {
+            box-shadow: 0 0 5px #00ff26;
+          }
+    }
     
+
+    .errorShow{
+        color: rgb(239, 41, 41);
+        opacity: 95%;
+        font-size: 12px;
+        
+        
+    }
+
+    .context{
+        // border: 1px solid green;
+        
+        display: flex;
+        flex-direction: column;
+        
+        h1{
+            font-size: 25px;
+            text-align: center;
+            color: #00000096;
+            margin-bottom: 20px;
+            letter-spacing: 10px;
+            font-weight: bold;
+        }
+        .form--container{
+            border-radius: 3px;
+             border: 1px solid black;
+             padding: 25px;
+            form{
+                display: flex;
+                flex-direction: column;
+                line-height: 18px;
+                input{
+                    width: 100%px;
+                }
+            }
+
+            button{
+                align-self: center;
+                margin: 10px 0 10px 0;
+                width: 430px;
+                padding: 15px;
+                color: #fff;
+                -webkit-text-stroke: 1px #000;
+                background-color: #daf18f96;
+                border-radius: 3px;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+                transition: all 0.3s ease; /* Applies ease effect to all properties */
+                cursor: pointer;
+                font-size: 16px;
+            }
+        }
+    }
 }

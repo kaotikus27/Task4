@@ -24,8 +24,8 @@ const CurrentUsers: Users[]= [
 ]
 // Get form values using form elements' IDs or names
 const form = document.getElementById('regForm') as HTMLFormElement;
-
-
+const newsLetter = document.getElementById('newsLetter') as HTMLInputElement;
+const isSubscribed = newsLetter.checked ? NewsLetterStatus.isSubscribed : NewsLetterStatus.noSubscribed;
 
 form.addEventListener('submit', (event: Event) => {
     event.preventDefault();  // Prevent the form from submitting the traditional way
@@ -33,8 +33,6 @@ form.addEventListener('submit', (event: Event) => {
     const lastName = (document.getElementById('lastName') as HTMLInputElement).value;
     const age = (document.getElementById('age') as HTMLInputElement).value;
     const email = (document.getElementById('email') as HTMLInputElement).value;
-    const newsLetter = document.getElementById('newsLetter') as HTMLInputElement;
-    const isSubscribed = newsLetter.checked ? NewsLetterStatus.isSubscribed : NewsLetterStatus.noSubscribed;
     const newUser: Users = {
         id: getNextId(CurrentUsers),  // Get the next ID
         firstName,  // From the form
@@ -55,11 +53,13 @@ form.addEventListener('submit', (event: Event) => {
         isValid = false;
         firstNameError += 'First name is required.\n';
     }
+
     // Check if last name is empty
     if (lastName.trim() === '') {
         isValid = false;
         lastNameError += 'Last name is required.\n';
     }
+
     // Check if age is a valid number and not empty
     if (age.trim() === '') {
         isValid = false;
@@ -68,6 +68,7 @@ form.addEventListener('submit', (event: Event) => {
         isValid = false;
         ageError += 'Age must be a valid number.\n';
     }
+
     // Check if email is not empty and is a valid email format
     if (email.trim() === '') {
         isValid = false;
@@ -85,19 +86,17 @@ form.addEventListener('submit', (event: Event) => {
         console.log("uncesscefuly")
         return; // Prevent form submission
     }else{
-        const message = `
-        <h3>Form submitted successfully!</h3>
-        <p><strong>Name:</strong> ${firstName} ${lastName}</p>
-        <p><strong>Age:</strong> ${age}</p>
-        <p><strong>Email Address:</strong> ${email}</p>
-        <p><strong>Newsletter Subscription:</strong> ${isSubscribed === NewsLetterStatus.isSubscribed ? 'Subscribed' : 'Not Subscribed'}</p>
+        const message = `Form submitted! 
+        Name: ${firstName} ${lastName}, 
+        Age: ${age},
+        Email Address: ${email},
+        News Letter: ${isSubscribed},
         `;
         document.getElementById('firstNameError')!.textContent =  ``;
         document.getElementById('lastNameError')!.textContent =  ``;
         document.getElementById('ageError')!.textContent =  ``;
         document.getElementById('emailError')!.textContent =  ``;
-        const messageContainer = document.getElementById('message')!;
-        messageContainer.innerHTML = message;
+        document.getElementById('message')!.textContent = message;
         registerUser(newUser)
         console.log(newUser)
         console.log("Succesfully registered")
@@ -105,7 +104,6 @@ form.addEventListener('submit', (event: Event) => {
     }
 
 });
-
 
 
 function validateEmail(email: string): boolean {

@@ -2,8 +2,100 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", serif;
+  font-style: normal;
+  color: #323642;
 }
 
 .main--container {
-  border: 1px solid red;
+  max-width: 1512px;
+  width: 80%; /* Set a fixed width for the body element */
+  margin: 50px auto;
+}
+.main--container .checkbox {
+  /* Optional hover effect */
+  /* Optional focus effect */
+}
+.main--container .checkbox .checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+.main--container .checkbox .checkbox {
+  display: none;
+}
+.main--container .checkbox .checkbox-custom {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #007bff;
+  border-radius: 4px;
+  margin-right: 10px;
+  position: relative;
+  transition: all 0.3s;
+}
+.main--container .checkbox .checkbox:checked + .checkbox-custom {
+  background-color: #00ff26;
+  border-color: #00ff26;
+}
+.main--container .checkbox .checkbox:checked + .checkbox-custom::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+}
+.main--container .checkbox .checkbox-label:hover .checkbox-custom {
+  border-color: #00ff26;
+}
+.main--container .checkbox .checkbox:focus + .checkbox-custom {
+  box-shadow: 0 0 5px #00ff26;
+}
+.main--container .errorShow {
+  color: rgb(239, 41, 41);
+  opacity: 95%;
+  font-size: 12px;
+}
+.main--container .context {
+  display: flex;
+  flex-direction: column;
+}
+.main--container .context h1 {
+  font-size: 25px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.5882352941);
+  margin-bottom: 20px;
+  letter-spacing: 10px;
+  font-weight: bold;
+}
+.main--container .context .form--container {
+  border-radius: 3px;
+  border: 1px solid black;
+  padding: 25px;
+}
+.main--container .context .form--container form {
+  display: flex;
+  flex-direction: column;
+  line-height: 18px;
+}
+.main--container .context .form--container form input {
+  width: 100% px;
+}
+.main--container .context .form--container button {
+  align-self: center;
+  margin: 10px 0 10px 0;
+  width: 430px;
+  padding: 15px;
+  color: #fff;
+  -webkit-text-stroke: 1px #000;
+  background-color: rgba(218, 241, 143, 0.5882352941);
+  border-radius: 3px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease; /* Applies ease effect to all properties */
+  cursor: pointer;
+  font-size: 16px;
 }/*# sourceMappingURL=style.css.map */
